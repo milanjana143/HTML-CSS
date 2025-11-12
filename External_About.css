@@ -1,0 +1,126 @@
+/* === PAGE (replace body bgcolor attribute with this) === */
+body {
+    background-color: silver;                 /* page background */
+    font-family: "Times New Roman", serif;    /* base font */
+    color: #222222;                           /* default text color */
+    margin: 0;
+    padding: 0 12px;                          /* small horizontal padding */
+    line-height: 1.6;                         /* readability */
+}
+
+/* === HEADER NAVIGATION (table-based, kept to match your HTML) === */
+header table {
+    border-collapse: collapse;
+    margin: 20px auto;                        /* center the nav table */
+    background-color: #333333;                /* dark nav background */
+    color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+header th {
+    padding: 12px 28px;
+    border-right: 1px solid #555555;
+}
+
+header th:last-child {
+    border-right: none;
+}
+
+header a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    display: inline-block;                    
+}
+
+header a:hover {
+    color: #ffd700;                           
+    text-decoration: underline;
+}
+
+/* === PAGE TITLE === */
+h1 {
+    text-align: center;
+    color: #500033;                           
+    font-weight: 700;
+    font-style: italic;
+    margin: 28px 0 6px;
+}
+
+/* If your HTML still contains <center>, this class helps center other items */
+.center {
+    text-align: center;
+}
+
+/* === HORIZONTAL RULE === */
+hr {
+    height: 3px;
+    background-color: grey;
+    border: none;
+    width: 80%;
+    margin: 8px auto 20px;
+}
+
+/* === FIELDSET (content block) === */
+fieldset {
+    width: 60%;
+    min-width: 280px;                         
+    margin: 20px auto;
+    border: 2px solid #500033;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    padding: 18px 20px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* copyright line inside the fieldset - center it */
+fieldset .copyright {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+/* paragraph text inside fieldset */
+fieldset p {
+    text-align: justify;                      
+    margin: 0;
+    font-size: 15px;
+    color: #222222;
+}
+
+/* === "Go Back" footer table === */
+table.footer {
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+table.footer th {
+    background-color: #333333;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+table.footer a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+table.footer a:hover {
+    color: #ffd700;
+}
+
+/* === UTILITY / RESPONSIVENESS (basic) === */
+/* Make the fieldset full width on narrow screens */
+@media (max-width: 700px) {
+    fieldset {
+        width: 92%;
+        padding: 14px;
+    }
+
+    header a {
+        font-size: 16px;
+    }
+}
+

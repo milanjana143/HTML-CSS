@@ -1,0 +1,129 @@
+/* === BASIC PAGE STYLING === */
+body {
+    background-color: silver;   
+    font-family: "Times New Roman", serif;
+    margin: 0;
+    padding: 0;
+    color: #222;
+}
+
+/* === HEADER NAVIGATION TABLE === */
+header table {
+    border-collapse: collapse;
+    margin: 20px auto;
+    background-color: #333333;            
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+header th {
+    padding: 12px 25px;
+    border-right: 1px solid #555555;
+    transition: background-color 0.3s;
+}
+
+header th:last-child {
+    border-right: none;
+}
+
+header a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+header a:hover {
+    color: #ffd700;
+    text-decoration: underline;
+}
+
+/* === PAGE TITLE === */
+h1 {
+    text-align: center;
+    color: #500033;      
+    text-decoration: underline;
+    font-style: italic;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+/* === HORIZONTAL LINE === */
+hr {
+    height: 3px;
+    background-color: grey;
+    border: none;
+    width: 80%;
+    margin: 10px auto;
+}
+
+/* === CONTACT FORM FIELDSET === */
+fieldset {
+    width: 50%;
+    margin: 40px auto;
+    border: 2px solid #500033;                
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* === INPUT TEXT BOXES & TEXTAREA === */
+input[type="text"],
+textarea {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #aaaaaa;               
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #500033;
+    outline: none;
+}
+
+/* === SUBMIT BUTTON === */
+input[type="submit"] {
+    background-color: #500033;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #70005a;
+}
+
+/* === FOOTER TABLE ("Go Back" BUTTON) === */
+table.footer {
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+table.footer th {
+    background-color: #333333;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+table.footer a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+table.footer a:hover {
+    color: #ffd700;
+}
+
+/* Utility: make sure center tags don't break flow (optional) */
+.center {
+    text-align: center;
+}
