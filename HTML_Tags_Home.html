@@ -5,46 +5,58 @@
     <title> HTML Home Page </title>
 
     <style>
-        label {
-            border: 1px;
-            border-radius: 5px;
-            background: green;
-            color: #fff;
-            padding-left: 4px;
-            padding-right: 4px;
-            margin-right: 3px;
+
+        /* Internal CSS ⬇️ */
+
+            label {
+                border: 1px;
+                border-radius: 5px;
+                background: green;
+                color: #fff;
+                padding-left: 4px;
+                padding-right: 4px;
+                margin-right: 3px;
+            }
+
+            dt {
+                font-weight: bold;
+                text-decoration: underline;
+            }
+
+            dd {
+                font-style: italic;
+            }
+
+            textarea {
+                background-color: lightyellow;
+                color: #d9534f;
+            }
+
+        /* Internal CSS ⬆️ */
+
+
+        /* Declaration of class using '.' symbol  */
+
+        .ul-circle {          /* Used in 389 line */      
+            list-style-type: circle;    
         }
 
-        dt {
-            font-weight: bold;
-            text-decoration: underline;
-        }
-
-        dd {
-            font-style: italic;
-        }
-
-        textarea {
-            background-color: lightyellow;
-            color: #d9534f;
-        }
-
-        .ul-circle {
-            list-style-type: circle;
-        }
-
-        .ol-lower-alpha {
+        .ol-lower-alpha {     /* Used in 395 line */ 
             list-style-type: lower-alpha;
         }
 
-        #ul-square {
+        /* Declaration of id using '#' symbol  */
+
+        #ul-square {          /* Used in 384 line */ 
             list-style-type: square;
         }
 
-        #ol-upper-roman {
+        #ol-upper-roman {     /* Used in 381 line */ 
             list-style-type: upper-roman;
         }
+
     </style>
+
 </head>
 
 <body bgcolor="lightblue">
@@ -70,9 +82,9 @@
             </tr>
         </table>
     </header>
-    <hr style="height: 2px" color="maroon">
+    <hr style="height: 2px" color="maroon">    <!-- ⬅️ Inline Css -->
 
-    <div style="text-align: center; background-color:#008080;">
+    <div style="text-align: center; background-color:#008080;">    <!-- ⬅️ Inline Css -->
         <h3>
             <font color="#ffff00">Tamralipta Institute of Management & Technology</font>
         </h3>
@@ -80,13 +92,13 @@
         </p>
     </div>
 
-    <h1 style="text-align: center; color: #d9534f"><b><u><i>
+    <h1 style="text-align: center; color: #d9534f">    <!-- ⬅️ Inline Css -->  <b><u><i>  
                     <font face="Times new roman"> Advance HTML
                 </i></u></b></font>
     </h1>
     <hr size="3" color="grey">
 
-    <p style="text-align:justify;"> <strong> HTML </strong> stands for Hyper Text Markup Language. <br>
+    <p style="text-align:justify;">    <!-- ⬅️ Inline Css -->   <strong> HTML </strong> stands for Hyper Text Markup Language. <br>
         The first version of HTML was written by Tim Berners-Lee in 1993.<br><br>
         It is the <q>standard markup</q> language for creating Web pages. It describes the structure of a Web page
         & consists of a series of elements. The elements of it tell the browser how to display a content .
@@ -104,7 +116,7 @@
 
     <dfn title="World Wide Web">
         <center>
-            <h3 style="font-size: 25px; color: red;">WWW</h3>
+            <h3 style="font-size: 25px; color: red;">    <!-- ⬅️ Inline Css -->     WWW </h3>
         </center>
     </dfn>
     <br>
@@ -366,21 +378,21 @@
     </table><br>
     <hr size="3" color="grey">
 
-    <ol id="ol-upper-roman">
+    <ol id="ol-upper-roman">       <!-- ⬅️ Use of id, which was declared under <head> tag -->
         <h3><u>Formula</u></h3>
         <li> Mathematics </li>
-        <ul id="ul-square">
+        <ul id="ul-square">        <!-- ⬅️ Use of id, which was declared under <head> tag -->
             <li>(a+b)<sup>2</sup>= a<sup>2</sup>+2ab+b<sup>2</sup></li>
             <li>(a-b)<sup>2</sup>= a<sup>2</sup>-2ab+b<sup>2</sup></li>
         </ul>
         <li> Chemistry </li>
-        <ul class="ul-circle">
+        <ul class="ul-circle">     <!-- ⬅️ Use of class, which was declared under <head> tag -->
             <li>Water= H<sub>2</sub>O</li>
             <li>Ammonia= NH<sub>3</li>
         </ul>
     </ol>
 
-    <ol class="ol-lower-alpha">
+    <ol class="ol-lower-alpha">    <!-- ⬅️ Use of class, which was declared under <head> tag -->
         <h3><u>Sub & Language</u></h3>
         <li> Subject </li>
         <ul>English</ul>
@@ -502,7 +514,7 @@ int main() {
         </ul>
         <hr size="3" color="grey">
 
-        <dialog open style="background-color:yellow; opacity:9;">It is a dialog box</dialog>
+        <dialog open style="background-color:yellow; opacity:9;">  <!-- ⬅️ Inline Css -->    It is a dialog box</dialog>
 
         <p>HTML stands for Hyper Text Markup Language. </p>
         <p> It is the standard markup language for creating Web pages. It describes the structure of a Web page
@@ -521,14 +533,14 @@ int main() {
         <hr size="3" color="grey">
 
         <p>
-            <img src="images/star.png" style="float: left; width: 50px; height: 50px;">The image is floated left. The
+            <img src="images/star.png" style="float: left; width: 50px; height: 50px;">   <!-- ⬅️ Inline Css -->      The image is floated left. The
             image is floated left. The image is floated left. The image is floated left.
         </p>
 
         <br>
 
         <p>
-            <img src="images/star.png" style="float: right; width: 50px; height: 50px;"> The image is floated right. The
+            <img src="images/star.png" style="float: right; width: 50px; height: 50px;">   <!-- ⬅️ Inline Css -->     The image is floated right. The
             image is floated right. The image is floated right. The image is floated right.
         </p>
 
@@ -541,7 +553,7 @@ int main() {
                 better. How would I know who was the best? How would I know what I was doing differently? ”
             </p>
         </blockquote>
-        <cite style="float: right;"> - Bill Gates </cite><br>
+        <cite style="float: right;">  <!-- ⬅️ Inline Css -->     - Bill Gates </cite><br>
         <hr size="3" color="grey">
 
         <video controls muted height="150" width="350"
