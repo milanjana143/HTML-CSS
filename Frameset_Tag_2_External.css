@@ -1,0 +1,485 @@
+/* ---------------------------
+   1. CSS Variables / Theme
+   --------------------------- */
+:root{
+  /* Color palette */
+  --bg: #0f1724;               /* deep slate background */
+  --panel: #0b1220;            /* slightly lighter panel */
+  --muted: #94a3b8;           /* muted text */
+  --text: #e6eef8;            /* main text */
+  --accent: #3b82f6;          /* primary accent (blue) */
+  --accent-2: #06b6d4;        /* secondary accent (teal) */
+  --success: #10b981;
+  --danger: #ef4444;
+  --glass: rgba(255,255,255,0.04);
+
+  /* Spacing scale */
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 18px;
+  --space-lg: 28px;
+  --space-xl: 40px;
+
+  /* Typography */
+  --font-sans: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Fira Code", "Courier New", monospace;
+  --base-size: 16px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+
+  /* Elevation shadows */
+  --shadow-1: 0 6px 18px rgba(2,6,23,0.45);
+  --shadow-2: 0 10px 40px rgba(2,6,23,0.55);
+
+  /* Transitions */
+  --fast: 180ms cubic-bezier(.2,.9,.2,1);
+  --med: 300ms cubic-bezier(.2,.8,.2,1);
+  --slow: 420ms cubic-bezier(.2,.7,.2,1);
+}
+
+/* ---------------------------
+   2. Reset & sensible base
+   --------------------------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: var(--base-size);
+  color: var(--text);
+  background: linear-gradient(180deg, var(--bg) 0%, #071022 100%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.45;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Reset common elements */
+h1,h2,h3,h4,h5,h6 { margin: 0; font-weight: 700; color: var(--text); }
+p { margin: 0 0 var(--space-sm) 0; color: var(--muted); }
+a { color: var(--accent); text-decoration: none; transition: color var(--fast); }
+a:hover, a:focus { color: var(--accent-2); outline: none; }
+
+/* Remove default border/scroll behavior for older frames browsers */
+frame, frameset { border: none; }
+
+/* ---------------------------
+   3. Utility helpers
+   --------------------------- */
+.u-container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-md); }
+.u-center { text-align: center; }
+.u-row { display:flex; flex-wrap:wrap; gap: var(--space-md); }
+.u-col { flex: 1 1 0; min-width: 0; }
+.hidden { display: none !important; }
+.lead { font-size: 1.125rem; color: var(--text); opacity: 0.95; }
+
+/* Spacing utilities */
+.mt-sm { margin-top: var(--space-sm); }
+.mt-md { margin-top: var(--space-md); }
+.mb-sm { margin-bottom: var(--space-sm); }
+
+/* ---------------------------
+   4. Frameset parent styling
+   --------------------------- */
+/* Frameset-specific: style the viewport and a decorative shell */
+.frameset-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  padding: var(--space-lg) 0;
+  background-image: radial-gradient(circle at 10% 10%, rgba(59,130,246,0.035), transparent 20%),
+                    radial-gradient(circle at 90% 80%, rgba(6,182,212,0.03), transparent 18%);
+}
+
+/* Top header area shown in the parent document if desired */
+.frameset-header {
+  width: 100%;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  background: linear-gradient(90deg, rgba(255,255,255,0.02), transparent);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  box-shadow: var(--shadow-1);
+  backdrop-filter: blur(6px);
+}
+
+.brand {
+  display:flex;
+  align-items:center;
+  gap: 12px;
+}
+.brand .logo {
+  width:44px;
+  height:44px;
+  display:inline-grid;
+  place-items:center;
+  background: linear-gradient(135deg,var(--accent),var(--accent-2));
+  border-radius: 10px;
+  font-weight:700;
+  color: white;
+  box-shadow: 0 4px 14px rgba(59,130,246,0.18);
+  font-family: var(--font-mono);
+}
+.brand h1 {
+  font-size: 1.125rem;
+  letter-spacing: -0.02em;
+}
+
+/* Small action area */
+.header-actions {
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+/* ---------------------------
+   5. Frame panes visual wrappers
+   --------------------------- */
+/* Keep an accessible visible split for the frames parents (decorative) */
+.frame-pane {
+  background: linear-gradient(180deg, rgba(255,255,255,0.012) 0%, rgba(255,255,255,0.006) 100%);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-1);
+  min-height: 360px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* If you use a wrapper DIV inside framed pages, these help content layout */
+.content-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+  box-shadow: 0 8px 30px rgba(2,6,23,0.45);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Title inside frames */
+.frame-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+
+/* Subheading / meta */
+.meta {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+/* ---------------------------
+   6. Typography system
+   --------------------------- */
+h1 { font-size: 1.75rem; letter-spacing: -0.02em; color: var(--text); }
+h2 { font-size: 1.25rem; color: var(--text); margin-top: 6px; }
+h3 { font-size: 1.05rem; color: var(--text); }
+
+p { font-size: 0.975rem; color: var(--muted); }
+
+/* code and pre */
+code, pre {
+  font-family: var(--font-mono);
+  background: rgba(255,255,255,0.02);
+  padding: 6px 8px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #bfe3ff;
+  display:inline-block;
+}
+pre {
+  padding: 12px;
+  overflow:auto;
+  max-height: 360px;
+  border-radius: 12px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+}
+
+/* ---------------------------
+   7. Buttons & controls
+   --------------------------- */
+.btn {
+  display: inline-flex;
+  align-items:center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(180deg,var(--accent), #2b6fe6);
+  color: white;
+  box-shadow: 0 8px 30px rgba(59,130,246,0.12);
+  transition: transform var(--fast), box-shadow var(--fast), filter var(--fast);
+  text-decoration: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-2); filter: brightness(1.02); }
+.btn:active { transform: translateY(-1px); }
+
+/* Variants */
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: none;
+}
+.btn-secondary {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.04);
+}
+.btn-danger { background: linear-gradient(180deg, var(--danger), #d43b3b); }
+
+/* Form elements */
+.input, .select, .textarea {
+  width:100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.03);
+  color: var(--text);
+  font-size: 0.95rem;
+  transition: box-shadow var(--fast), transform var(--fast);
+}
+.input:focus, .select:focus, .textarea:focus {
+  outline: none;
+  box-shadow: 0 8px 30px rgba(59,130,246,0.12);
+  transform: translateY(-1px);
+}
+
+/* ---------------------------
+   8. Lists, tables & badges
+   --------------------------- */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+.list li {
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.01);
+  border: 1px solid rgba(255,255,255,0.02);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 12px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: transparent;
+  color: var(--muted);
+}
+.table th, .table td {
+  padding: 12px 14px;
+  border-bottom: 1px dashed rgba(255,255,255,0.03);
+  text-align: left;
+}
+.table thead th {
+  color: var(--text);
+  font-weight: 700;
+}
+.badge {
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.03);
+  color: var(--text);
+}
+
+/* ---------------------------
+   9. Cards & panels
+   --------------------------- */
+.card {
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005));
+  border: 1px solid rgba(255,255,255,0.03);
+  box-shadow: var(--shadow-1);
+}
+.card-compact { padding: 12px; }
+
+/* Fancy feature card */
+.feature {
+  display:flex;
+  gap: 12px;
+  align-items:flex-start;
+}
+.feature .icon {
+  width:56px;
+  height:56px;
+  border-radius: 12px;
+  display:grid;
+  place-items:center;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.02);
+}
+
+/* ---------------------------
+   10. Alerts & toasts
+   --------------------------- */
+.alert {
+  padding: 12px 14px;
+  border-radius: 10px;
+  display:flex;
+  gap:10px;
+  align-items:center;
+  box-shadow: 0 8px 24px rgba(2,6,23,0.45);
+}
+.alert--info { background: linear-gradient(90deg, rgba(59,130,246,0.07), rgba(6,182,212,0.06)); color: var(--text); }
+.alert--success { background: linear-gradient(90deg, rgba(16,185,129,0.06), rgba(16,185,129,0.03)); color: var(--text); }
+.alert--danger { background: linear-gradient(90deg, rgba(239,68,68,0.06), rgba(239,68,68,0.03)); color: var(--text); }
+
+/* Toast container should be inside the framed page to show messages */
+.toast-wrap {
+  position: fixed;
+  right: var(--space-md);
+  bottom: var(--space-md);
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+  z-index: 9999;
+}
+
+/* ---------------------------
+   11. Animations
+   --------------------------- */
+@keyframes floatUp {
+  0% { transform: translateY(10px); opacity: 0; }
+  60% { transform: translateY(-4px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.fade-in { animation: floatUp var(--med) both; }
+
+/* small decorative shimmer for header */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.03) 50%, transparent 100%);
+  transform: translateX(-120%);
+  transition: transform var(--slow);
+}
+.shimmer:hover::after { transform: translateX(120%); }
+
+/* ---------------------------
+   12. Responsive rules
+   --------------------------- */
+@media (max-width: 980px) {
+  .frameset-header { padding: var(--space-xs) var(--space-md); gap: 10px; }
+  h1 { font-size: 1.35rem; }
+  .brand h1 { font-size: 1rem; }
+  .frame-pane { min-height: 260px; padding: var(--space-sm); }
+  .u-container { padding: 0 var(--space-sm); }
+}
+
+/* ---------------------------
+   13. Accessibility helpers
+   --------------------------- */
+:focus { outline: 3px solid rgba(59,130,246,0.18); outline-offset: 3px; }
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ---------------------------
+   14. Print styles
+   --------------------------- */
+@media print {
+  body { background: white; color: #111; }
+  .frameset-header, .header-actions, .btn, .toast-wrap { display: none !important; }
+  .card, .frame-pane { box-shadow: none; border: none; }
+}
+
+/* ---------------------------
+   15. Example components for framed pages
+   --------------------------- */
+/* A horizontal nav you can include inside a frame */
+.frame-nav {
+  display:flex;
+  gap: 10px;
+  align-items:center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.02);
+}
+.frame-nav a {
+  padding: 8px 12px;
+  border-radius: 9px;
+  color: var(--muted);
+  font-weight:600;
+}
+.frame-nav a.active { color: var(--text); background: rgba(255,255,255,0.02); }
+
+/* Info grid */
+.info-grid {
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+@media (max-width:800px) { .info-grid { grid-template-columns: 1fr; } }
+
+/* Footer for framed pages */
+.site-footer {
+  padding: var(--space-md) 0;
+  margin-top: var(--space-lg);
+  border-top: 1px solid rgba(255,255,255,0.02);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ---------------------------
+   16. Decorative utilities for polished UI
+   --------------------------- */
+.card-hero {
+  background: linear-gradient(90deg, rgba(59,130,246,0.06), rgba(6,182,212,0.03));
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  display:flex;
+  gap: 18px;
+  align-items:center;
+}
+.kicker { font-size: 0.85rem; color: var(--accent-2); font-weight: 700; letter-spacing: 0.06em; }
+
+/* small component for code/demo inside frame */
+.demo {
+  border-radius: 12px;
+  padding: 14px;
+  border: 1px solid rgba(255,255,255,0.02);
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+}
+
+/* ---------------------------
+   18. Minor browser-specific polish
+   --------------------------- */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.03); border-radius: 999px; }
+::-webkit-scrollbar-track { background: transparent; }
