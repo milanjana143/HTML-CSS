@@ -1,2 +1,2 @@
 ## 🚀 Project Demo
-![Project Demo](media/demo.gif)
+![Project Demo](Web%20Pages/media/demo.gif)
