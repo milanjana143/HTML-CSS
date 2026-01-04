@@ -519,9 +519,9 @@ int main() {
         <p> CSS & JavaScript also use for Web Design. </p>
         <hr size="3" color="grey">
 
-        <a href="https://www.wikipedia.org/">
+        <a href="https://www.wikipedia.org/" target="_blank">
             <figure>
-                <image src="example.jpg" height="200" width="300">
+                <image src="media/wikipedia.png" height="200" width="300">
         </a>
         <figcaption><b>
                 <font size="5">It is an link image</font>
@@ -530,14 +530,14 @@ int main() {
         <hr size="3" color="grey">
 
         <p>
-            <img src="images/star.png" style="float: left; width: 50px; height: 50px;">   <!-- ⬅️ Inline Css -->      The image is floated left. The
+            <img src="media/flag.png" style="float: left; width: 50px; height: 50px;">   <!-- ⬅️ Inline Css -->   &nbsp;   The image is floated left. The
             image is floated left. The image is floated left. The image is floated left.
         </p>
 
         <br>
 
         <p>
-            <img src="images/star.png" style="float: right; width: 50px; height: 50px;">   <!-- ⬅️ Inline Css -->     The image is floated right. The
+            <img src="media/flag.png" style="float: right; width: 50px; height: 50px;">   <!-- ⬅️ Inline Css -->     The image is floated right. The
             image is floated right. The image is floated right. The image is floated right.
         </p>
 
@@ -554,28 +554,44 @@ int main() {
         <hr size="3" color="grey">
 
         <video controls muted height="150" width="350"
-            poster="/storage/emulated/0/DCIM/Facebook/FB_IMG_1721070343503.jpg">
-            <source src="/storage/emulated/0/Video/ Video.Guru_20221012_0651515 68.mp4" type="video/mp4">
+            poster="media/thumbnail.jpg">
+            <source src="media/video.mp4" type="video/mp4">
         </video>
         <hr size="3" color="grey">
 
-        <audio controls autoplay>
-            <source src="/storage/emulated/ 0/Download/ Boro-Eka-Eka-Lage-Amar( Pagal-World.Com.In).mp3"
+        <video controls autoplay height="150" width="350"
+            poster="media/thumbnail.jpg">
+            <source src="media/video.mp4" type="video/mp4">
+        </video> <br><br>
+
+        <video controls loop height="150" width="350"
+            poster="media/thumbnail.jpg">
+            <source src="media/video.mp4" type="video/mp4">
+        </video> <br><br>
+
+        <video controls preload="none" height="150" width="350"
+            poster="media/thumbnail.jpg">
+            <source src="media/video.mp4" type="video/mp4">
+        </video> <br><br>
+
+        
+        <audio controls muted>
+            <source src="media/audio.mp3"
+                type="audio/mp3">
+        </audio><br><br>
+
+        <audio controls autoplay muted>
+            <source src="media/audio.mp3"
                 type="audio/mp3">
         </audio> <br><br>
 
         <audio controls loop>
-            <source src="/storage/emulated/ 0/Download/ Boro-Eka-Eka-Lage-Amar( Pagal-World.Com.In).mp3"
+            <source src="media/audio.mp3"
                 type="audio/mp3">
         </audio> <br><br>
 
-        <audio controls muted>
-            <source src="/storage/emulated/ 0/Download/ Boro-Eka-Eka-Lage-Amar( Pagal-World.Com.In).mp3"
-                type="audio/mp3">
-        </audio><br><br>
-
         <audio controls preload="none">
-            <source src="/storage/emulated/ 0/Download/ Boro-Eka-Eka-Lage-Amar( Pagal-World.Com.In).mp3"
+            <source src="media/audio.mp3"
                 type="audio/mp3">
         </audio>
         <hr size="3" color="grey">
@@ -826,7 +842,7 @@ int main() {
                 </marquee><br>
 
                 <marquee direction="right">
-                    <img src="image.jpg" alt="Image">
+                    <img src="media/flag.png" alt="Image" height="100px" width="100px">
                     </img>
                 </marquee>
             </center>
